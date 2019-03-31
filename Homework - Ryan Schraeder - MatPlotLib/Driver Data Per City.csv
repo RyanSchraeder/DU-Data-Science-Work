@@ -1,0 +1,121 @@
+city,type,Total Rides,Average Fare,Driver Count
+Liumouth,Urban,33,26.15,2277
+South Michelleport,Urban,31,24.4516129,2232
+West Anthony,Urban,30,24.73666667,2100
+Royland,Urban,30,20.57066667,1920
+East Kaylahaven,Urban,29,23.75793103,1885
+West Angela,Urban,39,25.99,1872
+West Samuelburgh,Urban,25,21.7676,1825
+Jerryton,Urban,25,25.6492,1600
+Grahamburgh,Urban,25,25.2212,1525
+Port Samanthamouth,Urban,25,25.6428,1425
+Carriemouth,Urban,27,28.31444444,1404
+Lake Scottton,Urban,24,23.80916667,1392
+Williamsstad,Urban,23,24.36217391,1357
+West Gabriel,Urban,23,20.34608696,1311
+Port Angela,Urban,19,23.83684211,1273
+Reynoldsfurt,Urban,19,21.91947368,1273
+Pattyland,Urban,21,23.98047619,1239
+West Robert,Urban,31,25.12387097,1209
+South Phillip,Urban,31,28.57129032,1178
+Justinberg,Urban,30,23.69433333,1170
+West Josephberg,Urban,26,21.72038462,1170
+Roberthaven,Urban,24,23.72916667,1128
+Christopherfurt,Urban,27,24.50185185,1107
+Richardfort,Urban,28,22.37321429,1064
+Hurleymouth,Urban,28,25.89142857,1008
+New Kimberlyborough,Urban,30,22.589,990
+North Jasmine,Urban,30,25.20533333,990
+Valentineton,Urban,22,24.63636364,990
+Joneschester,Urban,25,22.2896,975
+New Paulville,Urban,22,21.67590909,968
+Deanville,Urban,19,25.84263158,931
+Williamsview,Urban,20,26.599,920
+New Jacobville,Urban,18,26.76555556,900
+Huntermouth,Urban,24,28.99375,888
+South Jack,Urban,19,22.96526316,874
+New Paulton,Urban,19,27.82,836
+West Christopherberg,Urban,26,24.42115385,832
+West Heidi,Urban,28,23.13392857,784
+Rodneyfort,Urban,23,28.61695652,782
+Port Frank,Urban,33,27.20151515,759
+Loganberg,Urban,28,25.2925,644
+Martinezhaven,Urban,24,22.65125,600
+Barajasview,Urban,22,25.33227273,572
+Johnton,Urban,21,26.78571429,567
+Rogerston,Urban,22,22.09772727,550
+Simpsonburgh,Urban,24,23.35583333,504
+Lake Danielberg,Urban,26,24.84423077,494
+North Madeline,Urban,25,22.6236,475
+West Ericstad,Urban,18,22.34722222,450
+Erikaland,Urban,12,24.90666667,444
+West Patrickchester,Urban,16,28.233125,400
+North Barbara,Urban,22,23.49409091,396
+Karenberg,Urban,17,26.34,374
+Leahton,Urban,21,21.24380952,357
+South Evanton,Urban,31,26.72612903,341
+North Markport,Urban,14,27.50428571,308
+Raymondhaven,Urban,25,21.4804,275
+Robertport,Urban,20,23.0605,240
+Amandaburgh,Urban,18,24.64166667,216
+North Jason,Urban,35,22.74371429,210
+South Latoya,Urban,19,20.09315789,190
+Port David,Urban,22,25.855,154
+South Karenland,Urban,38,26.53552632,152
+Karenside,Urban,28,27.45357143,140
+Lake Jonathanshire,Urban,24,23.42583333,120
+Port Johnbury,Urban,22,23.00636364,66
+Josephside,Suburban,27,32.85814815,675
+Colemanland,Suburban,22,30.89454545,506
+South Teresa,Suburban,22,31.22045455,462
+Lake Scott,Suburban,18,31.88611111,414
+Bethanyland,Suburban,18,32.95611111,396
+Davidfurt,Suburban,17,31.99588235,391
+East Danielview,Suburban,17,31.56058824,374
+New Raymond,Suburban,22,27.96181818,374
+Nicolechester,Suburban,19,30.90947368,361
+New Olivia,Suburban,17,34.05411765,340
+New Shannonberg,Suburban,17,28.37823529,340
+Veronicaberg,Suburban,17,32.82823529,340
+Lake Omar,Suburban,14,28.075,308
+Myersshire,Suburban,16,30.203125,304
+Rodriguezview,Suburban,15,30.74533333,300
+Lewishaven,Suburban,12,25.24166667,276
+East Kentstad,Suburban,13,29.82307692,260
+West Hannah,Suburban,21,29.54761905,252
+Mezachester,Suburban,17,30.76,238
+Victoriaport,Suburban,14,27.78,224
+Brandonfort,Suburban,19,35.43736842,190
+Barronchester,Suburban,16,36.4225,176
+North Jeffrey,Suburban,13,29.24230769,143
+East Marymouth,Suburban,27,30.83518519,135
+Port Shane,Suburban,19,31.07789474,133
+Sotoville,Suburban,11,31.98,110
+North Timothy,Suburban,15,31.262,105
+Lake Robertside,Suburban,25,31.262,100
+West Kimmouth,Suburban,20,29.8715,80
+Lewisland,Suburban,17,34.61411765,68
+East Aaronbury,Suburban,9,25.66111111,63
+Lake Ann,Suburban,12,30.89,36
+Grayville,Suburban,15,27.76333333,30
+Williamsonville,Suburban,14,31.875,28
+South Brenda,Suburban,24,33.96458333,24
+North Richardhaven,Suburban,14,24.70428571,14
+Michaelberg,Rural,12,34.9975,72
+North Holly,Rural,9,29.13,72
+Bradshawfurt,Rural,10,40.064,70
+South Jennifer,Rural,7,35.26428571,49
+Randallchester,Rural,5,29.742,45
+West Heather,Rural,9,33.89,36
+Penaborough,Rural,5,35.246,30
+South Saramouth,Rural,4,36.16,28
+Harringtonfort,Rural,6,33.47,24
+Lake Jamie,Rural,6,34.35833333,24
+Lake Latoyabury,Rural,11,26.06181818,22
+Garzaport,Rural,3,24.12333333,21
+New Ryantown,Rural,6,43.27833333,12
+North Jaime,Rural,8,30.8025,8
+South Marychester,Rural,8,41.87,8
+Jessicaport,Rural,6,36.01333333,6
+Taylorhaven,Rural,6,42.26333333,6
+Newtonview,Rural,4,36.745,4
