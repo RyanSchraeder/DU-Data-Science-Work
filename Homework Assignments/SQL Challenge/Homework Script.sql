@@ -224,24 +224,79 @@ WHERE country.country = 'Canada'
 -- Sales have been lagging among young families, and you wish to target all family movies 
 -- for a promotion. Identify all movies categorized as family films.
 
+SELECT category.name, film.title
+	FROM film, category
+	WHERE (category.name = 'Family')
+;
+
 /* 7e. Display the most frequently rented movies in descending order. */
+
+SELECT inventory.film_id, film.title, count(*) as 'Rent Count'
+FROM rental, film, inventory
+WHERE rental.inventory_id = inventory.inventory_id
+AND inventory.film_id = film.film_id
+GROUP BY inventory.film_id, film.title
+ORDER BY 'Rent Count' DESC;
 
 /* 7f. Write a query to display how much business, in dollars, each store brought in. 
 Use  PAYMENT, CUSTOMER */
 
+SELECT customer.store_id, SUM(payment.amount) as 'Revenue'
+    FROM payment, customer
+	WHERE payment.customer_id = customer.customer_id
+	GROUP BY customer.store_id
+;
+
 /* 7g. Write a query to display for each store its store ID, city, and country.*/
 		-- Use Store, address, city country
 
+SELECT store.store_id, address.address, country.country, address.city_id
+FROM store, address, country
+WHERE store.address_id  = address.address_id
+;
 /* 7h. List the top five genres in gross revenue in descending order. (**Hint**: you may need to 
 use the following tables: category, film_category, inventory, payment, and rental.)*/
+SELECT category.name AS Genre, SUM(payment.amount) as 'GROSS REVENUE'
+  FROM   category
+		,film_category   
+        ,inventory 
+        ,payment
+        ,rental
+WHERE 	payment.rental_id = rental.rental_id
+  AND   rental.inventory_id = inventory.inventory_id
+  AND   inventory.film_id = film_category.film_id
+  AND   film_category.category_id = category.category_id
+GROUP BY Genre
+ORDER BY 2 DESC
+LIMIT 5 
+;  
 
 /* 8a. In your new role as an executive, you would like to have an easy way of viewing 
 the Top five genres by gross revenue. Use the solution from the problem above to create a view. 
 If you haven't solved 7h, you can substitute another query to create a view.*/
 
+CREATE VIEW Genre_Revenue_Breakdown AS 
+	(SELECT category.name AS Genre, SUM(payment.amount) as 'GROSS REVENUE'
+		FROM category
+			,film_category   
+			,inventory 
+			,payment
+			,rental
+		WHERE 	payment.rental_id = rental.rental_id
+		AND   rental.inventory_id = inventory.inventory_id
+		AND   inventory.film_id = film_category.film_id
+		AND   film_category.category_id = category.category_id
+GROUP BY Genre
+ORDER BY 2 DESC
+LIMIT 5)
+;  
+
 /* 8b. How would you display the view that you created in 8a?*/ 
 		-- Use below query to display all rows from the view. 
 
+SHOW CREATE VIEW Genre_Revenue_Breakdown;
+SELECT * FROM Genre_Revenue_Breakdown;
+
 -- 8c. You find that you no longer need the view `top_five_genres`. Write a query 
 -- to delete it.
-
+DROP VIEW IF EXISTS Genre_Revenue_Breakdown; 
