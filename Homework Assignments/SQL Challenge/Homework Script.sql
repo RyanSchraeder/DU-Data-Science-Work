@@ -52,7 +52,8 @@ GROUP BY  actor.last_name
 
 -- 4b List last names of actors and the number of actors who have that last
 --    name, but only for names that are shared by at least two actors
-SELECT last_name, count(*) last_name
+SELECT last_name
+	, count(*) last_name 
 FROM actor
 GROUP BY actor.last_name
 HAVING count(*) >= 2
@@ -119,34 +120,24 @@ SHOW CREATE TABLE address;
 /*6a. Use `JOIN` to display the first and last names, as well as the address,
   of each staff member. Use the tables `staff` and `address`:*/
 
-SELECT staff.first_name, staff.last_name, address.address
-FROM staff
-LEFT JOIN address ON staff.address_id = address.address_id; 
+SELECT S.first_name, S.last_name, address.address
+FROM staff S
+LEFT JOIN address ON S.address_id = address.address_id; 
 
 
  /*6b. Use `JOIN` to display the total amount rung up by each staff member in August of 2005. 
 Use tables `staff` and `payment`.*/
 
--- The staff table does not present payments from members in August of 2005..
-SELECT payment.staff_id, payment.payment_date
-       ,concat(staff.first_name,' ',staff.last_name) as Name
-       ,SUM(payment.amount) as 'Total Amount'
-  FROM payment 
-  JOIN staff ON payment.staff_id = staff.staff_id 
- GROUP BY payment.staff_id
+
+SELECT P.staff_id, P.payment_date
+	,concat(S.first_name,' ',S.last_name) AS Name
+	,SUM(P.amount) as 'Total Amount'
+FROM payment P, staff S
+WHERE MONTH (P.payment_date) = 08 
+  AND YEAR(P.payment_date) = 2005
+  AND P.staff_id = S.staff_id 
+GROUP BY P.staff_id
 ;
-
--- Try order by
-SELECT payment.payment_id, payment.payment_date, payment.staff_id
-	-- , HAVING payment_date like 2005-08
-	, CONCAT(staff.first_name, ' ', staff.last_name) AS Name
-    , SUM(payment.amount) AS 'Total Amount'
-	FROM payment
-    JOIN staff ON payment.staff_id = staff.staff_id
-    ORDER BY payment.staff_id
-    ; 
--- returns sum of total amount grouped by payment ID
-
 
 /*6c. List each film and the number of actors who are listed for that film. 
 Use tables `film_actor` and `film`. Use inner join. */
@@ -188,38 +179,45 @@ also soared in popularity. Use subqueries to display the titles of movies starti
 with the letters `K` and `Q` whose language is English.*/
 
  -- SELECT DISTINCTROW 'English' FROM language;
-SELECT title 
-	FROM film
-	WHERE (film.title LIKE 'K') OR (film.title LIKE 'Q') AND
-      (SELECT DISTINCTROW 'English' FROM language)
+SELECT F.title 
+	FROM film F
+	WHERE (F.title LIKE 'K%') OR (F.title LIKE 'Q%') 
+      AND F.language_id = 
+		(SELECT language_id FROM language
+			WHERE name = 'English')
 ;
+
+-- SELECT * FROM language;
 -- Keeps returning only title, revisit 
 
 -- 7b. Use subqueries to display all actors who appear in the film `Alone Trip`.
 --     Film id is 17 for 'Alone Trip'
 
-SELECT film.film_id
-		,CONCAT(actor.first_name, ' ', actor.last_name) AS 'Actor Name'
-        ,film.title
-    FROM film, actor
-	WHERE film.film_id IN
-		(SELECT film.film_id FROM film
-			WHERE film.title = 'Alone Trip' 
-            AND film.film_id = 17)
-	;
+SELECT 
+	CONCAT(actor.first_name, ' ', actor.last_name) AS 'Actor Name'
+    FROM film_actor, actor
+	WHERE film_actor.actor_id = actor.actor_id
+	  AND film_actor.film_id =
+		(SELECT film.film_id 
+		   FROM film
+		   WHERE film.title = 'Alone Trip')
+;
 	
  -- 7c. You want to run an email marketing campaign in Canada, for which you will need the names and 
  -- email addresses of all Canadian customers. Use joins to retrieve this information.
  
-SELECT CONCAT(customer.first_name, ' ', customer.last_name) AS 'Customer Name'
-		,customer.email
-		,customer_id
-        ,country.country
-        FROM customer
-JOIN country ON customer.customer_id
-WHERE country.country = 'Canada'
+SELECT CONCAT(C.first_name, ' ', C.last_name) AS 'Customer Name'
+		,C.address_id
+FROM customer C
+WHERE C.address_id IN (
+		SELECT A.address_id
+		FROM address A, city C, country CO
+		WHERE CO.country= 'Canada'
+		  AND CO.country_id = C.country_id
+		  AND A.city_id = C.city_id  
+		)
 ;
-			
+
 -- 7d.
 -- Sales have been lagging among young families, and you wish to target all family movies 
 -- for a promotion. Identify all movies categorized as family films.
