@@ -222,14 +222,19 @@ WHERE C.address_id IN (
 -- Sales have been lagging among young families, and you wish to target all family movies 
 -- for a promotion. Identify all movies categorized as family films.
 
-SELECT category.name, film.title
-	FROM film, category
-	WHERE (category.name = 'Family')
+SELECT film.title
+FROM film
+WHERE film.film_id IN
+	(SELECT film_category.film_id
+		FROM film_category, category
+        WHERE film_category.category_id = category.category_id
+			AND category.name = 'Family'
+	)
 ;
 
 /* 7e. Display the most frequently rented movies in descending order. */
 
-SELECT inventory.film_id, film.title, count(*) as 'Rent Count'
+SELECT film.title, count(*) as 'Rent Count'
 FROM rental, film, inventory
 WHERE rental.inventory_id = inventory.inventory_id
 AND inventory.film_id = film.film_id
@@ -248,10 +253,15 @@ SELECT customer.store_id, SUM(payment.amount) as 'Revenue'
 /* 7g. Write a query to display for each store its store ID, city, and country.*/
 		-- Use Store, address, city country
 
-SELECT store.store_id, address.address, country.country, address.city_id
-FROM store, address, country
-WHERE store.address_id  = address.address_id
+SELECT S.store_id, CO.country, CI.city
+FROM store S, country CO, city CI, address A
+WHERE S.address_id  = A.address_id
+	AND A.city_id = CI.city_id
+    AND CI.country_id = CO.country_id
 ;
+
+SELECT * FROM city;
+
 /* 7h. List the top five genres in gross revenue in descending order. (**Hint**: you may need to 
 use the following tables: category, film_category, inventory, payment, and rental.)*/
 SELECT category.name AS Genre, SUM(payment.amount) as 'GROSS REVENUE'
