@@ -40,8 +40,8 @@ def welcome():
         f"/api/v1.0/precipitation <br/>"
         f"/api/v1.0/stations <br/>"
         f"/api/v1.0/tobs <br/>"
-        f"/api/v1.0/yyyy-mm-dd/yyyy-mm-dd <br/>"
-        f"/api/v1.0/yyyy-mm-dd <br/>"
+        f"/api/v1.0/start <br/>"
+        f"/api/v1.0/start/end <br/>"
     )
 
 ### PRECIPITATION API REQUEST 
@@ -50,12 +50,6 @@ def welcome():
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
-    
-    ## Query results for date & prcp as a dict
-    print(start_date)
-    
-    ##Query upon 12 months prior 
-    print(date_prev_year)
     
     precip_data = session.query(Measurement.date,Measurement.prcp).\
               filter(Measurement.date > date_prev_year).all()
@@ -70,12 +64,8 @@ def precipitation():
         prcp_list.append(row.prcp)
         if count % 500 == 0:
             print(row.date, row.prcp)
-        
-    precip_data_dict = {
-                "Date":date_list,
-                "Precipitation":prcp_list
-                }
-    return jsonify (precip_data_dict)
+
+    return jsonify (precip_data)
 
 ### STATIONS API REQUEST 
 ##
@@ -84,7 +74,7 @@ def precipitation():
 @app.route("/api/v1.0/stations")
 def stations():
     ## Query results for stations 
-    station_list = session.query(Measurement.station).distinct().all()
+    station_list = session.query(Measurement.station).all()
     return jsonify(station_list)
 
 @app.route("/api/v1.0/tobs")
@@ -95,7 +85,7 @@ def tobs():
               all()
     return jsonify(results)
 
-@app.route("/api/v1.0/<start>")
+@app.route("/api/v1.0/startdate")
 def temp_start(start):
     
     #Try except for start date.
@@ -120,7 +110,7 @@ def temp_start(start):
                           all()
     return jsonify(measured_temp_entry)
 
-@app.route("/api/v1.0/<start>/<end>")
+@app.route("/api/v1.0/startdateenddate")
 def temp_start_end (start,end):
     start_input = input("Provide a start date (YYYY-MM-DD)")
     end_input = input("Provide an end date (YYYY-MM-DD)")
