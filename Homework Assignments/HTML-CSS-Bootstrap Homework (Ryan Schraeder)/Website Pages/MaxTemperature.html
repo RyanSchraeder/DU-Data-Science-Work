@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Weather Plot Display; HTML/CSS.">
+    <meta name="author" content="Ryan Schraeder">
+
+    <title>Bootstrap Weather Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--Import jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <!--Import JavaScript (AJAX)-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <!--Import latest bootstrap-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <!--Link to stylesheet (landing page style to format across full site-->
+    <!--It appears the full site uses a template, though stick by the imagery in assignment-->
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+
+</head>
+
+<body>
+
+    <!-- Row 1 -->
+    <div class="row">
+        <div class="col-md-12">
+            <!-- media query: set to box 1 for styling-->
+            <div class="box box-1">
+
+                <!-- fontawesome for design elements -->
+                <nav class="navbar navbar-expand navbar-light bg-lightgrey
+         topbar mb-4 static-top shadow">
+                    <a class="navbar-brand" href="Homework Dashboard Landing Page.html">Latitude</a>
+                    <!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"> -->
+
+                    <!--  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button> -->
+
+
+                    <ul class="navbar-nav navbar-responsive navbar-light shadow">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Plots
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="MaxTemperature.html">Max Temperature</a>
+                                <a class="dropdown-item" href="Humidity.html">Humidity</a>
+                                <a class="dropdown-item" href="Cloudiness.html">Cloudiness</a>
+                                <a class="dropdown-item" href="Wind Speed.html">Wind Speed</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Comparison.html">Comparison</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Data.html">Data</a>
+                        </li>
+                    </ul>
+            </div>
+            </nav>
+        </div>
+    </div>
+    </div>
+    <!-- Row 2 -->
+    <div class="row">
+        <div class="col-md-8">
+            <!-- media query: set to box 2 for styling-->
+            <div class="box box-2">
