@@ -3,6 +3,14 @@ body {
   background: white;
 }
 
+/* Navbar Design */
+nav.navbar {
+  background-blend-mode: hue; 
+  font-size-adjust: inherit;  
+  background: lightblue; 
+}
+
+
 /* every box is this size */
 .box {
 }
