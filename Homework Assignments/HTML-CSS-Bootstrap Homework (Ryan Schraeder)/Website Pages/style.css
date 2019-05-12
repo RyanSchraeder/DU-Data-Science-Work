@@ -5,9 +5,9 @@ body {
 
 /* Navbar Design */
 nav.navbar {
-  background-blend-mode: hue; 
+  background-blend-mode: lighten; 
   font-size-adjust: inherit;  
-  background: lightblue; 
+  background: rgb(237, 247, 250); 
 }
 
 

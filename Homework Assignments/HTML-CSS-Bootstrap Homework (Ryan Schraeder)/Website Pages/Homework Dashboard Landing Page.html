@@ -43,26 +43,30 @@
 <!-- fontawesome for design elements -->
     <nav class="navbar navbar-expand navbar-light bg-lightgrey
          topbar mb-4 static-top shadow">
-        <a class="navbar-brand" href="Homework Dashboard Landing Page.html">Latitude</a>
-<!-- <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"> -->
-
-        <!--  <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button> -->
-        
-        
+        <div class="container-fluid">
+          <div class="navbar-header">
+               <button type="button" class="navbar-toggle bg-lightgrey" data-toggle="collapse">
+                <a class="navbar-brand" href="Homework Dashboard Landing Page.html">Latitude</a>
+                    <span class="sr-only">Toggle Navigation</span> 
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+               </button>
+                
+          </div>
             <ul class="navbar-nav navbar-responsive navbar-light shadow">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         Plots
-                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="MaxTemperature.html">Max Temperature</a>
                         <a class="dropdown-item" href="Humidity.html">Humidity</a>
                         <a class="dropdown-item" href="Cloudiness.html">Cloudiness</a>
                         <a class="dropdown-item" href="Wind Speed.html">Wind Speed</a>
                     </div>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Comparison.html">Comparison</a>
@@ -82,13 +86,14 @@
 <!-- media query: set to box 2 for styling-->        
     <div class="box box-2">
         <h2> 
-            <article>
+            <span article>
                 <header> Latitude vs. X </header>
                 <a target="_blank" href="MaxTemperature.html">
                 <img src="../Resources/Images/LatitudeVsMaxTemp.png"
                     alt = "LatitudeVsMaxTemp">
                 </a>
             </article>
+            </span>
         </h2>
     </div>
     <div>    
