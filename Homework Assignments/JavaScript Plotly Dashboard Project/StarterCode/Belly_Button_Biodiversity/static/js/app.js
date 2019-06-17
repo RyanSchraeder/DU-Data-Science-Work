@@ -1,9 +1,34 @@
 function buildMetadata(sample) {
-
+  console.log("buildMetadata");
   // @TODO: Complete the following function that builds the metadata panel
+  
+  d3.json(`/metadata/${sample}`).then((data) => {
+    // Use d3 to select the panel with id of `#sample-metadata`
+    console.log(data); 
+
+    var metadataPanel = d3.select("#sample-metadata");
+    
+    // Use `.html("") to clear any existing metadata
+    metadataPanel.html("");
+
+    // Use `Object.entries` to add each key and value pair to the panel
+    // Hint: Inside the loop, you will need to use d3 to append new
+    // tags for each key-value in the metadata.
+
+    Object.entries(data).forEach(([key, value]) => {
+      metadataPanel.append("h6").text(`${key}: ${value}`);
+    });
+
+    // BONUS: Build the Gauge Chart
+  //  buildGauge(data.WFREQ);
+  });
 
   // Use `d3.json` to fetch the metadata for a sample
     // Use d3 to select the panel with id of `#sample-metadata`
+
+    // d3.json(data).then(function(buildMetadata) {
+    //   console.log(buildMetadata);
+    // });
 
     // Use `.html("") to clear any existing metadata
 
@@ -16,7 +41,7 @@ function buildMetadata(sample) {
 }
 
 function buildCharts(sample) {
-
+  console.log("buildCharts"); 
   // @TODO: Use `d3.json` to fetch the sample data for the plots
 
     // @TODO: Build a Bubble Chart using the sample data
@@ -24,7 +49,7 @@ function buildCharts(sample) {
     // @TODO: Build a Pie Chart
     // HINT: You will need to use slice() to grab the top 10 sample_values,
     // otu_ids, and labels (10 each).
-}
+}; 
 
 function init() {
   // Grab a reference to the dropdown select element
@@ -41,6 +66,9 @@ function init() {
 
     // Use the first sample from the list to build the initial plots
     const firstSample = sampleNames[0];
+    
+    console.log("firstSample", firstSample); 
+
     buildCharts(firstSample);
     buildMetadata(firstSample);
   });
@@ -48,6 +76,7 @@ function init() {
 
 function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
+  console.log(newSample); 
   buildCharts(newSample);
   buildMetadata(newSample);
 }
