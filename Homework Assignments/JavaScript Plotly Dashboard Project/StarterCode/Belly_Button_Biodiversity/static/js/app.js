@@ -26,13 +26,17 @@ function buildMetadata(sample) {
 
   // @TODO: Use `d3.json` to fetch the sample data for the plots
 
-function buildCharts(sample) {
+function buildCharts(sample_values) {
   console.log("buildCharts");
 
   // @TODO: Build a Bubble Chart using the sample data
+      
 
   // @TODO: Build a Pie Chart
 
+          // First, build your trace and initialize data selection with path. 
+          // Then, customize the pie with title, radius, color, text size, cursor hover response
+  
   // HINT: You will need to use slice() to grab the top 10 sample_values,
   // otu_ids, and labels (10 each).
 
