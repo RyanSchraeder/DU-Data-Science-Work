@@ -48,6 +48,15 @@ def names():
     # Return a list of the column names (sample names)
     return jsonify(list(df.columns)[2:])
 
+## REFER TO TEST HOW ROUTES ARE PULLING DATA
+# @app.route("/metadata/<name>")
+# def metadata(name):
+
+#     return jsonify(name)
+
+# @app.route("/names")
+# def names():
+#     return jsonify(["Ryan"])
 
 @app.route("/metadata/<sample>")
 def sample_metadata(sample):
