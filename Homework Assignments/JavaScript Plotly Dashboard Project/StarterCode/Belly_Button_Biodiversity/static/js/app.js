@@ -4,16 +4,20 @@ var selector_data = []
 
 function buildMetadata(sample) {
   console.log("buildMetadata");
+
   // @TODO: Complete the following function that builds the metadata panel
 
   d3.json(`/metadata/${sample}`).then((data) => {
+
     // Use d3 to select the panel with id of `#sample-metadata`
+
     console.log(data);
     console.log("==========")
 
     var metadataPanel = d3.select("#sample-metadata");
 
     // Use `.html("") to clear any existing metadata
+
     metadataPanel.html("");
 
     // Use `Object.entries` to add each key and value pair to the panel
@@ -25,7 +29,6 @@ function buildMetadata(sample) {
     });
   });
 }
-
 
 // function buildSampleData(sample) {
 //   console.log("buildSampleData");
@@ -39,7 +42,7 @@ function buildMetadata(sample) {
 
 //     selector_data[0].otu_ids.forEach(function (index, item) {
 //       console.log("otu_id: ", item)
-      
+
 //       bubble_trace.push({
 //         x: item
 //       })
@@ -52,7 +55,7 @@ function buildMetadata(sample) {
 //       if(bubble_trace[index]) {
 //         bubble_trace[index].y = item;
 //       }
-        
+
 //     })
 
 //     selector_data[0].otu_labels.forEach(function (index, item) {
@@ -62,19 +65,18 @@ function buildMetadata(sample) {
 //     console.log("bubble:  ", bubble_trace);
 
 //   });
-
-  
-
 // };
-
-
-
-
 
 // BONUS: Build the Gauge Chart
 //  buildGauge(data.WFREQ);
 
 // @TODO: Use `d3.json` to fetch the sample data for the plots
+
+// First, build your trace and initialize data selection with path. 
+// Then, customize the pie with title, radius, color, text size, cursor hover response
+
+// HINT: You will need to use slice() to grab the top 10 sample_values,
+// otu_ids, and labels (10 each).
 
 function buildCharts(sample) {
   console.log("buildCharts");
@@ -89,9 +91,11 @@ function buildCharts(sample) {
     console.log(otu_ids, otu_labels, sample_values)
 
     // Build a Bubble Chart
+
     var bubbleLayout = {
       margin: { t: 0 },
       hovermode: "closest",
+
       xaxis: { title: "OTU ID" }
     };
     var bubbleData = [
@@ -132,25 +136,6 @@ function buildCharts(sample) {
     Plotly.plot("pie", pieData, pieLayout);
   });
 }
-
-// console.log("bubble trace: ", bubble_trace);
-
-// Y axis = sample_values
-// y: selector_data('sample_values'),
-
-// type: 'bubble',
-// name: '<b>Belly Button Bacteria Volume</b>'
-
-//};
-
-
-// First, build your trace and initialize data selection with path. 
-// Then, customize the pie with title, radius, color, text size, cursor hover response
-
-// HINT: You will need to use slice() to grab the top 10 sample_values,
-// otu_ids, and labels (10 each).
-
-//};
 
 function init() {
 
