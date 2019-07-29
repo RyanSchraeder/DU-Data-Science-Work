@@ -9,15 +9,14 @@ d3.json(queryUrl, function (data) {
     // Using the returned collectionFeatures in the API data, create a GeoJSON layer and add it to the map
 function collectionFeatures(earthquakeData) {
 
-        // Define a function we want to run once for each feature in the features array
-        // Give each feature a popup describing the place and time of the earthquake
-        function onEachFeature(feature, layer) {
+        function onEachFeature (feature, layer) {
             layer.bindPopup("<h3>" + feature.properties.place +
                 "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
         }
 
         // Create a GeoJSON layer containing the features on the earthquakeData object
         // Run the onEachFeature function once for each piece of data in the array
+
         var earthquakes = L.geoJSON(earthquakeData, {
             pointToLayer: function (feature, latlng) {
                 return L.circleMarker (latlng, {
@@ -30,8 +29,9 @@ function collectionFeatures(earthquakeData) {
                 });
             },
 
-            // Create tooltip
+            // Create tooltips
             // Bold font
+
             onEachFeature: function (feature, layer) {
                 return layer.bindPopup(`<strong>Place:</strong>
                                         ${feature.properties.place}
